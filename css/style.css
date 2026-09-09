@@ -70,7 +70,32 @@ img {
   width: 245px;
   height: 88px;
   object-fit: contain;
+  object-position: left center;
   display: block;
+}
+.menu-toggle,
+.mobile-nav-actions {
+  display: none;
+}
+.menu-toggle {
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  cursor: pointer;
+}
+.menu-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  margin: 4px auto;
+  border-radius: 2px;
+  background: var(--ink);
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
 }
 .site-header nav {
   display: flex;
@@ -783,6 +808,7 @@ textarea:focus {
   width: 290px;
   height: 115px;
   object-fit: contain;
+  object-position: left center;
   margin-bottom: 8px;
 }
 .contact-card p {
@@ -809,6 +835,7 @@ footer {
   width: 290px;
   height: 115px;
   object-fit: contain;
+  object-position: left center;
 }
 .footer-brand p {
   max-width: 430px;
@@ -842,8 +869,76 @@ footer {
 }
 /* Responsive layouts */
 @media (max-width: 1080px) {
-  .site-header nav {
+  .site-header {
+    height: 86px;
+    padding: 7px 16px;
+    gap: 14px;
+  }
+  .brand img {
+    width: 185px;
+    height: 72px;
+  }
+  .menu-toggle {
+    display: block;
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+  .site-header .header-actions {
     display: none;
+  }
+  .site-header nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+    margin: 0;
+    padding: 8px 16px 20px;
+    overflow: hidden;
+    background: rgba(255, 253, 248, 0.98);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 18px 35px rgba(41, 34, 13, 0.12);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease,
+      visibility 0.2s ease;
+  }
+  .site-header nav > a {
+    padding: 13px 4px;
+    border-bottom: 1px solid var(--line);
+    font-size: 1rem;
+  }
+  .mobile-nav-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 12px;
+    padding-top: 16px;
+  }
+  .mobile-nav-actions > a:first-child {
+    text-align: center;
+    font-weight: 850;
+  }
+  .site-header[data-menu-open='true'] nav {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+  .site-header[data-menu-open='true'] .menu-toggle span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  .site-header[data-menu-open='true'] .menu-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+  .site-header[data-menu-open='true'] .menu-toggle span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
   }
   .hero {
     grid-template-columns: 1fr 1fr;
@@ -877,21 +972,6 @@ footer {
 @media (max-width: 780px) {
   .section-shell {
     width: min(100% - 32px, 1240px);
-  }
-  .site-header {
-    height: 86px;
-    padding-inline: 16px;
-  }
-  .brand img {
-    width: 185px;
-    height: 72px;
-  }
-  .phone-link {
-    display: none;
-  }
-  .btn-small {
-    padding: 9px 12px;
-    font-size: 0.78rem;
   }
   .hero {
     grid-template-columns: 1fr;
@@ -944,8 +1024,12 @@ footer {
   .section {
     padding: 72px 0;
   }
-  .site-header .btn-small {
-    display: none;
+  .brand img {
+    width: 165px;
+    height: 68px;
+  }
+  .mobile-nav-actions {
+    grid-template-columns: 1fr;
   }
   .hero-actions {
     display: grid;
@@ -1057,34 +1141,13 @@ main section[id] {
   margin-block: 24px;
 }
 
-/* Keep section navigation available on smaller screens. */
-@media (max-width: 1080px) {
-  .site-header {
-    height: auto;
-    flex-wrap: wrap;
-    gap: 8px 20px;
-  }
-  .header-actions {
-    margin-left: auto;
-  }
-  .site-header nav {
-    display: flex;
-    order: 3;
-    width: 100%;
-    margin-left: 0;
-    overflow-x: auto;
-    gap: 24px;
-    white-space: nowrap;
-  }
-  main section[id] {
-    scroll-margin-top: 160px;
-  }
-}
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
   .btn,
+  .menu-toggle span,
+  .site-header nav,
   input,
   select,
   textarea {

@@ -3,7 +3,38 @@ const form = document.querySelector('#contactForm');
 const statusEl = document.querySelector('#formStatus');
 const photos = document.querySelector('#photos');
 const year = document.querySelector('#year');
+const header = document.querySelector('.site-header');
+const menuToggle = document.querySelector('.menu-toggle');
+const navigation = document.querySelector('#main-navigation');
 if (year) year.textContent = new Date().getFullYear();
+
+function setMenu(open) {
+  if (!header || !menuToggle) return;
+  header.dataset.menuOpen = String(open);
+  menuToggle.setAttribute('aria-expanded', String(open));
+  menuToggle.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+}
+
+if (header && menuToggle && navigation) {
+  menuToggle.addEventListener('click', () => {
+    setMenu(menuToggle.getAttribute('aria-expanded') !== 'true');
+  });
+  navigation.addEventListener('click', (event) => {
+    if (event.target.closest('a')) setMenu(false);
+  });
+  document.addEventListener('click', (event) => {
+    if (!header.contains(event.target)) setMenu(false);
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      setMenu(false);
+      menuToggle.focus();
+    }
+  });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1080) setMenu(false);
+  });
+}
 
 if (form) {
   form.addEventListener('submit', async (e) => {

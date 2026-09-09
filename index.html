@@ -16,12 +16,25 @@
       <a class="brand" href="#top" aria-label="SION Umzüge Startseite"
         ><img src="assets/logo.png" alt="SION Umzüge"
       /></a>
-      <nav aria-label="Hauptnavigation">
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="main-navigation"
+        aria-label="Menü öffnen"
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="main-navigation" aria-label="Hauptnavigation">
         <a href="#leistungen">Leistungen</a>
         <a href="#ablauf">Ablauf</a>
         <a href="#ueber-uns">Über uns</a>
         <a href="#faq">FAQ</a>
         <a href="#kontakt">Kontakt</a>
+        <div class="mobile-nav-actions">
+          <a href="tel:+4917620761895">0176 20761895</a>
+          <a class="btn" href="#anfrage">Angebot anfragen</a>
+        </div>
       </nav>
       <div class="header-actions">
         <a class="phone-link" href="tel:+4917620761895">0176 20761895</a>
@@ -43,9 +56,9 @@
             <a class="btn-secondary" href="tel:+4917620761895">Jetzt anrufen</a>
           </div>
           <div class="hero-points">
-            <span>✓ Persönliche Beratung</span>
+            <span>✓ Angebot & Besichtigung kostenlos</span>
+            <span>✓ Transparente Festpreise</span>
             <span>✓ Sorgfältiger Transport</span>
-            <span>✓ Flexible Zusatzleistungen</span>
           </div>
         </div>
         <div class="hero-visual">
@@ -109,11 +122,11 @@
             </p>
           </article>
           <article class="service-card">
-            <div class="icon">↥</div>
-            <h3>Möbellift & Kranarbeiten</h3>
+            <div class="icon">+</div>
+            <h3>Umzüge mit Kostenübernahme</h3>
             <p>
-              Ideal bei engen Treppenhäusern, hohen Etagen oder sperrigen Möbeln. Ein Möbellift kann
-              Wege verkürzen und den Transport deutlich erleichtern.
+              Wir erstellen Ihnen ein passendes Angebot zur Einreichung bei Ihrer Kranken- oder
+              Pflegekasse. Nach der Kostenübernahme planen wir Ihren Umzug.
             </p>
           </article>
           <article class="service-card">
@@ -286,7 +299,8 @@
             <h2>Erzählen Sie uns von Ihrem Umzug.</h2>
             <p>
               Mit detaillierten Angaben können wir Ihre Anfrage schneller und genauer einschätzen.
-              Pflichtfelder sind mit * gekennzeichnet.
+              Angebot und Besichtigung sind für Sie kostenlos und unverbindlich. Pflichtfelder sind
+              mit * gekennzeichnet.
             </p>
           </div>
           <form id="contactForm" enctype="multipart/form-data">
@@ -494,6 +508,20 @@
         </div>
         <div class="faq-list">
           <details open>
+            <summary>Sind Angebot und Besichtigung kostenlos?</summary>
+            <p>
+              Ja. Sowohl das Angebot als auch eine erforderliche Besichtigung vor Ort sind für Sie
+              kostenlos und unverbindlich.
+            </p>
+          </details>
+          <details>
+            <summary>Arbeiten Sie mit Festpreisen?</summary>
+            <p>
+              Ja. Nach Prüfung Ihrer Angaben oder einer kostenlosen Besichtigung erhalten Sie ein
+              transparentes Festpreisangebot für den vereinbarten Leistungsumfang.
+            </p>
+          </details>
+          <details>
             <summary>Wie früh sollte ich meinen Umzug anfragen?</summary>
             <p>
               Am besten, sobald Ihr Termin ungefähr feststeht. So bleibt mehr Spielraum für Planung,
