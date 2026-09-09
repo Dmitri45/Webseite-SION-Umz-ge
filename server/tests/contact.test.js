@@ -5,6 +5,7 @@ import { test } from 'node:test';
 process.env.BREVO_API_KEY = 'test-key';
 process.env.BREVO_TEMPLATE_ID = '3';
 process.env.MAIL_FROM = 'sender@example.com';
+process.env.MAIL_TO = 'recipient@example.com';
 const { default: app } = await import('../app.js');
 const { config } = await import('../config/env.js');
 const nativeFetch = globalThis.fetch;
@@ -65,6 +66,11 @@ test('contact API preserves responses and email contents', async (t) => {
     assert.equal(mail.params.fromAddress, 'Düsseldorf');
     assert.equal(Object.keys(mail.params).length, 20);
     assert.equal(mail.replyTo.email, 'test@example.com');
+    assert.deepEqual(mail.to, [{ email: 'recipient@example.com' }]);
+    assert.deepEqual(mail.sender, {
+      name: 'SION Umzüge Website',
+      email: 'sender@example.com',
+    });
     assert.deepEqual(mail.attachment, [{ name: 'photo.jpg', content: 'cGhvdG8=' }]);
   });
   await t.test('too many photos return JSON error', async () => {
@@ -120,6 +126,18 @@ test('contact API preserves responses and email contents', async (t) => {
       assert.equal((await response.json()).error, 'E-Mail-Versand ist noch nicht konfiguriert.');
     } finally {
       config.mail.apiKey = originalKey;
+    }
+  });
+
+  await t.test('missing sender configuration returns 500', async () => {
+    const originalFrom = config.mail.from;
+    try {
+      config.mail.from = '';
+      const response = await submit(contactForm());
+      assert.equal(response.status, 500);
+      assert.equal((await response.json()).error, 'E-Mail-Versand ist noch nicht konfiguriert.');
+    } finally {
+      config.mail.from = originalFrom;
     }
   });
 });

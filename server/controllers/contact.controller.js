@@ -5,7 +5,7 @@ import { HttpError } from '../utils/http-error.js';
 
 export async function submitContact(req, res, next) {
   try {
-    if (!config.mail.apiKey) {
+    if (!config.mail.apiKey || !config.mail.from || !config.mail.to) {
       throw new HttpError(500, 'E-Mail-Versand ist noch nicht konfiguriert.');
     }
     validateContact(req.body);

@@ -16,6 +16,6 @@ export const config = {
     templateId,
     from: process.env.MAIL_FROM,
     fromName: process.env.MAIL_FROM_NAME || 'SION Umzüge Website',
-    to: process.env.MAIL_TO || 'info@sionumzuge.de',
+    to: process.env.MAIL_TO,
   },
 };
