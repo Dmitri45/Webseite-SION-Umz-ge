@@ -101,3 +101,40 @@ optionale leere Werte erscheinen als `–`, Leistungen als kommagetrennter Text.
 Antwortadresse und Foto-Anhänge werden weiterhin mitgesendet. Änderungen am
 Layout erfolgen im Brevo-Editor. Der frühere lokale HTML-Generator wird nicht
 mehr für den Versand verwendet. Nach Konfigurationsänderungen Server neu starten.
+
+## Technisches SEO
+
+Der bestätigte Hauptdomainname ist `https://sionumzuege.de`. Alle Canonical-Links,
+JSON-LD-URLs und Sitemap-Adressen verwenden diesen Host. Bei einem Domainwechsel
+alle absoluten URLs in den drei HTML-Dateien, `robots.txt` und `sitemap.xml` ändern.
+
+- Jede HTML-Seite hat einen eigenen absoluten Canonical-Link.
+- `sitemap.xml` enthält die drei öffentlichen Seiten; `robots.txt` erlaubt Crawling.
+- Die Startseite enthält JSON-LD vom Typ `MovingCompany` mit den veröffentlichten
+  Firmen- und Kontaktdaten. Keine erfundenen Bewertungen oder Öffnungszeiten.
+- Express leitet `/index.html` dauerhaft auf `/` um und erhält Query-Parameter.
+- Bilder, CSS und JavaScript werden einen Tag gecacht; bei Änderungen an diesen
+  Dateien neue Dateinamen verwenden oder bis zum Ablauf des Caches warten.
+- Express veröffentlicht nur die HTML-/SEO-Dateien und öffentlichen Asset-Ordner.
+  Beim Einsatz eines anderen Webservers diese Beschränkung ebenfalls konfigurieren.
+- Optimierte Bilder sind separate Dateien; die Originale bleiben erhalten.
+
+Nach Veröffentlichung HTTPS und Weiterleitungen von HTTP sowie der alternativen
+www-/Nicht-www-Domain am Hosting konfigurieren. Dann die drei Seiten, robots.txt
+und sitemap.xml auf Status 200 prüfen, Rich Results Test ausführen und die Sitemap
+in Google Search Console einreichen. Fehlende URLs müssen Status 404 liefern.
+Die tatsächliche Google-Indexierung lässt sich nur am veröffentlichten Standort
+und über Search Console prüfen.
+
+### Lokale mobile Messung
+
+Lighthouse 13.4.1, mobiles Standardprofil, lokaler Express-Server:
+Performance 76 → 94, SEO 92 → 100, Accessibility 96.
+LCP 7,5 → 3,2 Sekunden, FCP 0,9 Sekunden nach Optimierung,
+TBT 0 ms, CLS 0. Die erste Messung fand vor Fertigstellung der SEO-Dateien statt.
+Der abschließende Bericht liegt in `reports/lighthouse-mobile.html`.
+Es handelt sich um Labormessungen, nicht um Felddaten vom produktiven Hosting.
+Bestehende Kontrastprobleme werden im Accessibility-Teil des Berichts aufgeführt.
+
+Validierung: `cd server && npm test` (17 erfolgreiche Tests), zusätzlich XML-
+und JSON-LD-Parsing sowie Abgleich aller Sitemap-URLs mit ihren Canonical-Links.

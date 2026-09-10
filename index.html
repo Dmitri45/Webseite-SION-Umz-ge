@@ -9,12 +9,51 @@
     />
     <meta name="theme-color" content="#f5bd12" />
     <title>SION Umzüge | Umzugsunternehmen Düsseldorf</title>
+    <link rel="canonical" href="https://sionumzuege.de/" />
     <link rel="stylesheet" href="css/style.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "MovingCompany",
+        "@id": "https://sionumzuege.de/#company",
+        "name": "SION Umzüge",
+        "legalName": "SION Umzüge GbR",
+        "url": "https://sionumzuege.de/",
+        "logo": "https://sionumzuege.de/assets/logo-web.png",
+        "image": [
+          "https://sionumzuege.de/img/first-photo-web.jpg",
+          "https://sionumzuege.de/img/team-web.jpg"
+        ],
+        "telephone": "+4917620761895",
+        "email": "info@sionumzuge.de",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Fährstraße 217",
+          "postalCode": "40221",
+          "addressLocality": "Düsseldorf",
+          "addressCountry": "DE"
+        },
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Düsseldorf"
+          },
+          {
+            "@type": "AdministrativeArea",
+            "name": "Nordrhein-Westfalen"
+          },
+          {
+            "@type": "Country",
+            "name": "Deutschland"
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <header class="site-header">
       <a class="brand" href="#top" aria-label="SION Umzüge Startseite"
-        ><img src="assets/logo.png" alt="SION Umzüge"
+        ><img src="assets/logo-web.png" alt="SION Umzüge" width="400" height="400"
       /></a>
       <button
         class="menu-toggle"
@@ -64,10 +103,10 @@
         <div class="hero-visual">
           <img
             class="hero-photo"
-            src="img/first_photo_plate_fixed.jpg"
+            src="img/first-photo-web.jpg"
             alt="Weißer Umzugswagen von SION Umzüge"
-            width="960"
-            height="1280"
+            width="720"
+            height="960"
             fetchpriority="high"
           />
           <div class="hero-badge"><strong>SION</strong><span>Umzüge</span></div>
@@ -230,10 +269,10 @@
           <div class="about-photo">
             <img
               class="photo-frame"
-              src="img/original_2_plate_hidden.jpg"
+              src="img/team-web.jpg"
               alt="SION Mitarbeiter beim Beladen des Umzugswagens mit Möbeln"
-              width="960"
-              height="1280"
+              width="720"
+              height="960"
               loading="lazy"
               decoding="async"
             />
@@ -589,7 +628,7 @@
             </p>
           </div>
           <div class="contact-card">
-            <img src="assets/logo.png" alt="SION Umzüge" />
+            <img src="assets/logo-web.png" alt="SION Umzüge" width="400" height="400" />
             <p><b>SION Umzüge</b><br />Fährstraße 217<br />40221 Düsseldorf</p>
             <a href="tel:+4917620761895">0176 20761895</a>
             <a href="mailto:info@sionumzuge.de">info@sionumzuge.de</a>
@@ -602,7 +641,7 @@
     <footer>
       <div class="footer-main section-shell">
         <div class="footer-brand">
-          <img src="assets/logo.png" alt="SION Umzüge" />
+          <img src="assets/logo-web.png" alt="SION Umzüge" width="400" height="400" />
           <p>Professionelle Umzüge und Transporte für Privatpersonen und Unternehmen.</p>
         </div>
         <div>
@@ -620,7 +659,7 @@
         <div><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div>
       </div>
     </footer>
-    <script src="js/photo-upload.js"></script>
-    <script src="js/script.js"></script>
+    <script src="js/photo-upload.js" defer></script>
+    <script src="js/script.js" defer></script>
   </body>
 </html>

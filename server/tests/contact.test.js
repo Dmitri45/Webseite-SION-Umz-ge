@@ -45,6 +45,29 @@ test('contact API preserves responses and email contents', async (t) => {
     assert.equal(response.status, 200);
     assert.match(await response.text(), /SION Umzüge/);
   });
+  await t.test('public SEO documents are crawlable and homepage duplicates redirect', async () => {
+    for (const path of ['/', '/impressum.html', '/datenschutz.html', '/robots.txt', '/sitemap.xml']) {
+      const response = await nativeFetch(`${base}${path}`);
+      assert.equal(response.status, 200, path);
+      assert.equal(response.headers.get('x-robots-tag'), null);
+      const body = await response.text();
+      if (path === '/' || path.endsWith('.html')) {
+        assert.match(body, /rel="canonical"/);
+        assert.doesNotMatch(body, /noindex/i);
+      }
+      if (path === '/sitemap.xml') assert.match(response.headers.get('content-type'), /xml/);
+      if (path === '/robots.txt') assert.match(body, /Sitemap: https:\/\//);
+    }
+    const redirect = await nativeFetch(`${base}/index.html?utm_source=test`, { redirect: 'manual' });
+    assert.equal(redirect.status, 301);
+    assert.equal(redirect.headers.get('location'), '/?utm_source=test');
+    const image = await nativeFetch(`${base}/assets/logo-web.png`);
+    assert.equal(image.status, 200);
+    assert.match(image.headers.get('cache-control'), /max-age=86400/);
+    for (const path of ['/missing-page', '/server/app.js', '/README.md', '/.git/config']) {
+      assert.equal((await nativeFetch(`${base}${path}`)).status, 404, path);
+    }
+  });
   await t.test('required fields return 400', async () => {
     const response = await submit(new FormData());
     assert.equal(response.status, 400);
