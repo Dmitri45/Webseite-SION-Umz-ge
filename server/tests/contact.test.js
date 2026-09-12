@@ -61,8 +61,9 @@ test('contact API preserves responses and email contents', async (t) => {
     const redirect = await nativeFetch(`${base}/index.html?utm_source=test`, { redirect: 'manual' });
     assert.equal(redirect.status, 301);
     assert.equal(redirect.headers.get('location'), '/?utm_source=test');
-    const image = await nativeFetch(`${base}/assets/logo-web.png`);
+    const image = await nativeFetch(`${base}/assets/logo.svg`);
     assert.equal(image.status, 200);
+    assert.match(image.headers.get('content-type'), /image\/svg\+xml/);
     assert.match(image.headers.get('cache-control'), /max-age=86400/);
     for (const path of ['/missing-page', '/server/app.js', '/README.md', '/.git/config']) {
       assert.equal((await nativeFetch(`${base}${path}`)).status, 404, path);

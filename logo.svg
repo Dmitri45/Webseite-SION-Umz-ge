@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="87 411 1085 426" width="1085" height="426" role="img" aria-label="SION UMZÜGE logo">
+  <title>SION UMZÜGE</title>
+  <!-- Main word: SION -->
+  <g fill="#040609">
+    <!-- S -->
+    <polygon points="178,435 424,435 369,495 209,495 196,507 196,533 380,533 418,572 418,643 369,691 111,691 160,632 333,632 344,622 344,590 161,590 123,552 123,489"/>
+    <!-- I -->
+    <rect x="450" y="435" width="76" height="256"/>
+    <!-- N: two clean pieces separated by the diagonal counter -->
+    <polygon points="894,435 963,435 1081,570 1081,435 1147,435 1147,691 1091,691 951,524 894,524"/>
+    <polygon points="894,538 944,538 963,559 963,691 894,691"/>
+  </g>
+
+  <!-- Q: only this letter is adjusted. Clean arrow tip + constant-width diagonal cut. -->
+  <defs>
+    <mask id="q-mask" maskUnits="userSpaceOnUse" x="540" y="420" width="380" height="320">
+      <rect x="540" y="420" width="380" height="320" fill="white"/>
+      <!-- inner counter -->
+      <polygon fill="black" points="638,495 784,495 793,504 793,632 637,632 628,623 628,505"/>
+      <!-- constant-width diagonal opening; extended past the outer edge and clipped by the Q -->
+      <polygon fill="black" points="784,580 906,663.4 898,676.6 776,593.2"/>
+    </mask>
+  </defs>
+  <polygon fill="#FEBF02" mask="url(#q-mask)" points="607,435 818,435 863,481 863,647 863,660 785,718 785,691 604,691 559,647 559,481"/>
+
+  <!-- Accent bars -->
+  <g fill="#FEBF02">
+    <rect x="123" y="770" width="144" height="19"/>
+    <rect x="1005" y="770" width="142" height="19"/>
+  </g>
+
+  <!-- UMZÜGE -->
+  <g fill="#040609">
+    <!-- U -->
+    <path d="M319 753H333V797L336 800H356L359 797V753H372V802L366 809L362 812H329L321 806L319 802Z"/>
+
+    <!-- M -->
+    <path d="M438 753H454L473 785H475L492 753H507V812H494V775L493 774L475 806H472L451 775V812H438Z"/>
+
+    <!-- Z -->
+    <path d="M571 753H623V765L590 800H623V812H570V800L603 765H571Z"/>
+
+    <!-- Ü -->
+    <path d="M686 753H699V797L702 800H722L725 797V753H739V798L736 807L733 810L729 812H695L689 808L686 803Z"/>
+    <rect x="698" y="735" width="11" height="11"/>
+    <rect x="717" y="735" width="10" height="11"/>
+
+    <!-- G -->
+    <path d="M815 753H841L850 758L853 764V772H840V767L838 765H816L813 769V797L816 800H838L840 798V789H826V779H853V801L851 806L847 810L843 812H810L803 807L800 800V765L806 756Z"/>
+
+    <!-- E -->
+    <path d="M914 753H961V765H929V777H946V789H929V800H961V812H914Z"/>
+  </g>
+</svg>

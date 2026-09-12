@@ -67,8 +67,8 @@ img {
   border-bottom: 1px solid rgba(216, 208, 190, 0.85);
 }
 .brand img {
-  width: 245px;
-  height: 88px;
+  width: 200px;
+  height: 72px;
   object-fit: contain;
   object-position: left center;
   display: block;
@@ -817,8 +817,8 @@ textarea:focus {
   justify-items: start;
 }
 .contact-card img {
-  width: 290px;
-  height: 115px;
+  width: 230px;
+  height: 90px;
   object-fit: contain;
   object-position: left center;
   margin-bottom: 8px;
@@ -844,8 +844,8 @@ footer {
   gap: 60px;
 }
 .footer-brand img {
-  width: 290px;
-  height: 115px;
+  width: 230px;
+  height: 90px;
   object-fit: contain;
   object-position: left center;
 }
@@ -887,8 +887,8 @@ footer {
     gap: 14px;
   }
   .brand img {
-    width: 185px;
-    height: 72px;
+    width: 150px;
+    height: 58px;
   }
   .menu-toggle {
     display: block;
@@ -1037,8 +1037,13 @@ footer {
     padding: 72px 0;
   }
   .brand img {
-    width: 165px;
-    height: 68px;
+    width: 120px;
+    height: 48px;
+  }
+  .contact-card img,
+  .footer-brand img {
+    width: 120px;
+    height: auto;
   }
   .mobile-nav-actions {
     grid-template-columns: 1fr;

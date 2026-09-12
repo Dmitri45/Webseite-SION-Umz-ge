@@ -36,7 +36,7 @@ datenschutz.html    Datenschutz (noch zu vervollständigen)
 css/style.css       Design, Komponenten und responsive Darstellung
 js/script.js        Formularversand und Jahreszahl im Footer
 js/photo-upload.js  Bildkomprimierung im Browser
-assets/logo.png     Firmenlogo
+assets/logo.svg     Firmenlogo (SVG)
 server/server.js    Start des HTTP-Servers
 server/app.js       Express-App und Middleware
 server/config/      Umgebungsvariablen und Pfade
