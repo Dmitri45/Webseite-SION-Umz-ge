@@ -138,3 +138,26 @@ Bestehende Kontrastprobleme werden im Accessibility-Teil des Berichts aufgeführ
 
 Validierung: `cd server && npm test` (17 erfolgreiche Tests), zusätzlich XML-
 und JSON-LD-Parsing sowie Abgleich aller Sitemap-URLs mit ihren Canonical-Links.
+
+## Google Ads und Einwilligung
+
+`js/consent.js` steuert Google Ads (`AW-18299309565`) im Basic Consent Mode v2.
+Den Google-Tag nicht zusätzlich direkt in HTML einfügen: Er wird ausschließlich
+nach Zustimmung geladen. Ohne JavaScript bleibt Google Ads deaktiviert.
+Das Banner und „Cookie-Einstellungen“ sind auf allen drei Seiten eingebunden;
+`css/consent.css` enthält das responsive Design.
+
+Die Auswahl wird unter `sion-consent-v1` für 180 Tage in Local Storage gespeichert.
+Analytics bleibt abgelehnt. Bei Widerruf wird der Consent aktualisiert, erreichbare
+Werbe-Cookies werden gelöscht und die Seite neu geladen, um den Google-Code zu
+entladen. Dabei können ungesendete Formulareingaben verloren gehen. Änderungen
+werden über das Storage-Ereignis auch in anderen offenen Tabs berücksichtigt.
+Bei wesentlichen Änderungen der Zwecke den Versionsschlüssel ändern.
+
+Nach Veröffentlichung im Google-Dialog „Ich verwende ein benutzerdefiniertes
+Einwilligungsbanner“ auswählen und mit Tag Assistant prüfen. Zusätzlich im
+Browser-Netzwerk prüfen: ohne Auswahl und nach Ablehnung keine Google-Requests;
+nach Zustimmung ein Google-Tag; nach Widerruf und Neuladen keine Google-Requests.
+Die automatisierten Tests prüfen die lokale Steuerlogik, nicht das Verhalten
+von Google auf dem produktiven Hosting. Spezifische Conversion-Ereignisse sind
+mit dieser Einbindung noch nicht konfiguriert.

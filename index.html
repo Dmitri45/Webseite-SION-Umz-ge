@@ -2,6 +2,8 @@
 <html lang="de">
   <head>
     <meta charset="utf-8" />
+    <script src="/js/consent.js" defer></script>
+    <link rel="stylesheet" href="/css/consent.css" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta
       name="description"
@@ -10,6 +12,7 @@
     <meta name="theme-color" content="#f5bd12" />
     <title>SION Umzüge | Umzugsunternehmen Düsseldorf</title>
     <link rel="canonical" href="https://sionumzuege.de/" />
+    <link rel="icon" type="image/svg+xml" sizes="any" href="/assets/favicon.svg" />
     <link rel="stylesheet" href="css/style.css" />
     <script type="application/ld+json">
       {
@@ -656,10 +659,23 @@
       </div>
       <div class="footer-bottom section-shell">
         <span>© <span id="year"></span> SION Umzüge</span>
-        <div><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div>
+        <div><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><button type="button" class="cookie-settings" data-cookie-settings hidden>Cookie-Einstellungen</button></div>
       </div>
     </footer>
     <script src="js/photo-upload.js" defer></script>
     <script src="js/script.js" defer></script>
+    <section id="cookie-banner" class="cookie-banner" aria-labelledby="cookie-title" hidden>
+      <h2 id="cookie-title">Ihre Privatsphäre</h2>
+      <p>Mit Ihrer Einwilligung nutzen wir Google Ads, um die Wirkung unserer Werbung zu
+        messen und personalisierte Werbung zu ermöglichen. Dabei können Cookies gesetzt
+        und Daten an Google, auch in die USA, übermittelt werden. Ohne Einwilligung wird
+        Google Ads nicht geladen. Ihre Auswahl speichern wir für 180 Tage auf diesem Gerät.
+        Sie können sie jederzeit über „Cookie-Einstellungen“ ändern.
+        <a href="/datenschutz.html">Datenschutz</a> · <a href="/impressum.html">Impressum</a></p>
+      <div class="cookie-actions">
+        <button type="button" data-cookie-reject>Ablehnen</button>
+        <button type="button" data-cookie-accept>Akzeptieren</button>
+      </div>
+    </section>
   </body>
 </html>

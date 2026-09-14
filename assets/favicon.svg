@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>SION Umzüge</title>
+  <rect width="64" height="64" rx="12" fill="#f5bd12"/>
+  <polygon
+    transform="translate(7 11.5) scale(.16) translate(-111 -435)"
+    fill="#040609"
+    points="178,435 424,435 369,495 209,495 196,507 196,533 380,533 418,572 418,643 369,691 111,691 160,632 333,632 344,622 344,590 161,590 123,552 123,489"
+  />
+</svg>
