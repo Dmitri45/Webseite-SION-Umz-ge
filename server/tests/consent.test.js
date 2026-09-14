@@ -64,3 +64,17 @@ test('all pages use only the consent loader and offer settings', () => {
     assert.match(html, /data-cookie-settings/); assert.match(html, /id="cookie-banner"/);
   }
 });
+
+test('lead conversions require active advertising consent and contain no form data', () => {
+  const r = run();
+  const conversions = () => r.window.dataLayer.filter((a) => a[0] === 'event');
+  r.window.trackLeadConversion(); assert.equal(conversions().length, 0);
+  r.reject(); r.window.trackLeadConversion(); assert.equal(conversions().length, 0);
+  r.accept(); r.window.trackLeadConversion();
+  assert.equal(conversions().length, 1);
+  assert.equal(conversions()[0][1], 'conversion');
+  assert.deepEqual(JSON.parse(JSON.stringify(conversions()[0][2])), {
+    send_to: 'AW-18299309565/_tzgCLGytfccEP2b5ZVE', value: 1, currency: 'EUR',
+  });
+  r.reject(); r.window.trackLeadConversion(); assert.equal(conversions().length, 1);
+});

@@ -17,6 +17,14 @@
     analytics_storage: 'denied',
   });
   window.gtag('consent', 'default', state(false));
+  window.trackLeadConversion = () => {
+    if (choice !== true || !loaded) return;
+    window.gtag('event', 'conversion', {
+      send_to: 'AW-18299309565/_tzgCLGytfccEP2b5ZVE',
+      value: 1.0,
+      currency: 'EUR',
+    });
+  };
 
   function readChoice() {
     try {

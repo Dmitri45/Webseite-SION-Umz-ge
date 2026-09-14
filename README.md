@@ -159,5 +159,8 @@ Einwilligungsbanner“ auswählen und mit Tag Assistant prüfen. Zusätzlich im
 Browser-Netzwerk prüfen: ohne Auswahl und nach Ablehnung keine Google-Requests;
 nach Zustimmung ein Google-Tag; nach Widerruf und Neuladen keine Google-Requests.
 Die automatisierten Tests prüfen die lokale Steuerlogik, nicht das Verhalten
-von Google auf dem produktiven Hosting. Spezifische Conversion-Ereignisse sind
-mit dieser Einbindung noch nicht konfiguriert.
+von Google auf dem produktiven Hosting. Nach erfolgreicher Serverantwort auf eine Formularanfrage wird bei aktiver
+Werbeeinwilligung die Conversion `AW-18299309565/_tzgCLGytfccEP2b5ZVE` mit
+Wert 1 EUR gesendet. Dies ist ein konfigurierter Messwert, kein tatsächlicher Umsatz.
+Formularinhalte werden nicht an Google übergeben. Nach Veröffentlichung ggf.
+den Asset-Cache leeren (CSS/JavaScript werden bis zu einem Tag gecacht).

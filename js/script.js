@@ -63,6 +63,11 @@ if (form) {
       form.reset();
       statusEl.textContent =
         'Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet. Wir melden uns bei Ihnen.';
+      try {
+        window.trackLeadConversion?.();
+      } catch {
+        // Measurement failures must not turn a successful request into an error.
+      }
     } catch (err) {
       statusEl.textContent = err.message;
     } finally {
