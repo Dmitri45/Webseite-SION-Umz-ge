@@ -533,6 +533,99 @@ img {
   color: var(--muted);
   margin-top: 4px;
 }
+/* Selected customer reviews between the quick facts and services. */
+.reviews-section {
+  padding-top: 8px;
+}
+.reviews-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px 32px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+}
+.reviews-copy .eyebrow {
+  color: #806000;
+  font-size: 0.68rem;
+}
+.reviews-copy h2 {
+  margin: 8px 0;
+  font-size: clamp(1.3rem, 2.3vw, 1.75rem);
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+}
+.reviews-copy p {
+  margin: 0;
+  max-width: 560px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.reviews-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-shrink: 0;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 750;
+}
+.reviews-link:hover {
+  background: var(--cream);
+  border-color: var(--gold-deep);
+}
+.reviews-link:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 4px;
+}
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+.review-card {
+  margin: 0;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--white);
+}
+.review-card figcaption strong,
+.review-card figcaption span {
+  display: block;
+}
+.review-card figcaption strong { font-size: 0.9rem; }
+.review-card figcaption span { color: var(--muted); font-size: 0.75rem; }
+.review-stars {
+  display: inline-block;
+  margin-top: 10px;
+  color: #806000;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+}
+.review-card blockquote { margin: 10px 0 0; }
+.review-card blockquote p { margin: 0; font-size: 0.88rem; line-height: 1.7; }
+.reviews-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+@media (max-width: 760px) {
+  .reviews-grid { grid-template-columns: 1fr; gap: 12px; }
+  .reviews-section { padding-top: 4px; }
+  .reviews-panel { flex-direction: column; align-items: flex-start; padding: 24px; gap: 20px; }
+}
 /* Service areas */
 .area-cloud {
   display: flex;
