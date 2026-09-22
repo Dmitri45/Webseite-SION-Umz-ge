@@ -51,3 +51,10 @@
   .cookie-banner { padding: 18px; font-size: 13px; }
   .footer-bottom > div { flex-wrap: wrap; }
 }
+
+@media (max-width: 760px) {
+  .cookie-banner {
+    bottom: calc(84px + env(safe-area-inset-bottom, 0px));
+    max-height: calc(100dvh - 100px - env(safe-area-inset-bottom, 0px));
+  }
+}

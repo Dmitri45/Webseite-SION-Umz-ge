@@ -1355,3 +1355,29 @@ main section[id] {
     transition: none;
   }
 }
+
+/* Compact mobile WhatsApp shortcut. */
+.mobile-whatsapp-bar { display: none; }
+@media (max-width: 760px) {
+  body { padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)); }
+  .mobile-whatsapp-bar {
+    display: block;
+    position: fixed;
+    z-index: 1001;
+    right: 16px;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  }
+  .mobile-whatsapp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #146c43;
+    color: #fff;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
+  }
+  .mobile-whatsapp:hover { background: #105735; }
+  .mobile-whatsapp:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+}
